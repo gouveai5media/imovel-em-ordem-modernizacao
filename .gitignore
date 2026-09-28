@@ -1,0 +1,18 @@
+# Nunca versionar dados sensíveis ou conteúdo do ambiente de produção
+*.sql
+*.sql.gz
+*.env
+*.log
+error_log*
+config/phpwcms/conf.inc.php
+config/phpwcms/conf.template_default.inc.php
+filearchive/
+content/images/
+upload/
+uploads/
+
+# Arquivos locais
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
