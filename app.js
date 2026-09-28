@@ -72,7 +72,7 @@ function renderCondominios(items = condominios) {
       <td data-label="Status"><span class="status-pill"><span></span>${item.status}</span></td>
       <td data-label="Ações" class="data-table__actions">
         <div class="action-strip" aria-label="Acessos rápidos de ${item.nome}">
-          <button class="row-action row-action--edit" type="button" data-action="Editar" data-condo="${item.nome}">${icons.edit}<span>Editar</span></button>
+          <a class="row-action row-action--edit" href="condominio-form.html?modo=editar" aria-label="Editar ${item.nome}">${icons.edit}<span>Editar</span></a>
           <button class="action-icon action-icon--folder" type="button" data-tooltip="Arquivos" aria-label="Arquivos" data-action="Arquivos" data-condo="${item.nome}">${icons.folder}</button>
           <button class="action-icon action-icon--history" type="button" data-tooltip="Histórico" aria-label="Histórico" data-action="Histórico" data-condo="${item.nome}">${icons.history}</button>
           <button class="action-icon action-icon--tools" type="button" data-tooltip="Manutenções" aria-label="Manutenções" data-action="Manutenções" data-condo="${item.nome}">${icons.tools}</button>
@@ -103,7 +103,7 @@ function renderManutencoes(term = '') {
           <span class="maintenance-group__icon">${icons.edit}</span>
           <div><h3>${group.sistema}</h3><p>${group.itens.length} ${group.itens.length === 1 ? 'subsistema' : 'subsistemas'}</p></div>
         </div>
-        <button class="row-action row-action--edit" type="button" data-action="Editar sistema" data-condo="${group.sistema}">${icons.edit}<span>Editar sistema</span></button>
+        <a class="row-action row-action--edit" href="manutencao-form.html?modo=editar" aria-label="Editar sistema ${group.sistema}">${icons.edit}<span>Editar sistema</span></a>
       </header>
       <div class="maintenance-group__items">
         ${group.itens.map((item) => `
