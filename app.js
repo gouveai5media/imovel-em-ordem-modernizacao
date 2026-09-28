@@ -33,6 +33,8 @@ const icons = {
 
 const condoRows = document.querySelector('#condoRows');
 const resultCount = document.querySelector('#resultCount');
+const rangeCount = document.querySelector('#rangeCount');
+const totalCount = document.querySelector('#totalCount');
 const condoSearch = document.querySelector('#condoSearch');
 const maintenanceList = document.querySelector('#maintenanceList');
 const maintenanceSearch = document.querySelector('#maintenanceSearch');
@@ -53,6 +55,8 @@ function showToast(message) {
 
 function renderCondominios(items = condominios) {
   resultCount.textContent = items.length;
+  rangeCount.textContent = items.length ? `1–${items.length}` : '0';
+  totalCount.textContent = items.length;
   condoRows.innerHTML = items.map((item) => `
     <tr data-name="${item.nome}">
       <td data-label="Código"><span class="code-chip">${item.codigo}</span></td>
