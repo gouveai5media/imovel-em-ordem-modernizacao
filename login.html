@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Acesso à plataforma Imóvel em Ordem.">
+  <title>Imóvel em Ordem — Acesse seu imóvel</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="login-page">
+    <section class="login-brand" aria-label="Imóvel em Ordem">
+      <div class="login-brand__content">
+        <img src="assets/logo-imo-oficial.svg" alt="Imóvel em Ordem" class="login-brand__logo">
+        <div class="login-brand__copy">
+          <span class="eyebrow">Gestão, segurança e tranquilidade</span>
+          <h1>Seu imóvel sempre em ordem.</h1>
+          <p>Acesse documentos, manutenções e informações do seu empreendimento em um único ambiente.</p>
+        </div>
+        <div class="login-brand__features" aria-label="Recursos da plataforma">
+          <div><span class="feature-icon">✓</span><p><strong>Acesso seguro</strong><small>Informações protegidas</small></p></div>
+          <div><span class="feature-icon">✓</span><p><strong>Gestão simplificada</strong><small>Tudo em um só lugar</small></p></div>
+        </div>
+      </div>
+      <span class="building building--one" aria-hidden="true"></span>
+      <span class="building building--two" aria-hidden="true"></span>
+      <span class="building building--three" aria-hidden="true"></span>
+    </section>
+
+    <section class="login-access">
+      <a class="home-link" href="index.html" aria-label="Voltar ao início">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+        Voltar ao início
+      </a>
+
+      <div class="login-card">
+        <header class="login-card__header">
+          <span class="mobile-logo"><img src="assets/logo-imo-oficial.svg" alt="Imóvel em Ordem"></span>
+          <span class="section-kicker">Área do usuário</span>
+          <h2>Acesse seu imóvel</h2>
+          <p>Entre com seus dados para continuar.</p>
+        </header>
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <div class="field__heading">
+              <label for="email">E-mail</label>
+              <button class="help-button" type="button" data-help="email" aria-label="Ajuda sobre o e-mail">?</button>
+            </div>
+            <div class="input-control">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 7 9-7"/></svg>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
+            </div>
+            <p class="field-error" id="emailError">Informe um e-mail válido.</p>
+          </div>
+
+          <div class="field">
+            <div class="field__heading">
+              <label for="password">Senha</label>
+            </div>
+            <div class="input-control">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required>
+              <button class="password-toggle" id="passwordToggle" type="button" aria-label="Mostrar senha">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+              </button>
+            </div>
+            <p class="field-error" id="passwordError">Informe sua senha.</p>
+          </div>
+
+          <div class="form-options">
+            <label class="remember"><input type="checkbox"><span></span> Lembrar meu acesso</label>
+            <button class="text-button" type="button" data-open="recoveryModal">Esqueci minha senha</button>
+          </div>
+
+          <button class="primary-button" type="submit">
+            Entrar
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+          </button>
+        </form>
+
+        <div class="register-callout">
+          <span class="register-callout__icon">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M18 8v6M15 11h6"/></svg>
+          </span>
+          <div><strong>Primeiro acesso?</strong><p>Faça seu pré-cadastro usando o código do empreendimento.</p></div>
+          <button type="button" data-open="registerModal">Não estou cadastrado</button>
+        </div>
+
+        <p class="support-copy">Precisa de ajuda? Entre em contato com a sua construtora ou com o síndico.</p>
+      </div>
+      <footer>© 2026 Imóvel em Ordem · Ambiente seguro</footer>
+    </section>
+  </main>
+
+  <div class="tooltip" id="emailTooltip" role="tooltip" hidden>
+    <button type="button" aria-label="Fechar ajuda">×</button>
+    <strong>Seu e-mail é o login de acesso</strong>
+    <p>Caso já esteja cadastrado, no primeiro acesso será solicitado o cadastramento de sua senha.</p>
+  </div>
+
+  <div class="modal" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <section class="modal__card">
+      <button class="modal__close" type="button" data-close aria-label="Fechar">×</button>
+      <span class="modal__icon">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M8 21v-5h8v5M8 9h.01M12 9h.01M16 9h.01"/></svg>
+      </span>
+      <span class="section-kicker">Primeiro acesso</span>
+      <h2 id="registerTitle">Não sou cadastrado</h2>
+      <p>Informe o código recebido no cartão de acesso ou enviado pela construtora.</p>
+      <form id="registerForm">
+        <label for="condoCode">Código do empreendimento</label>
+        <div class="modal-field-row">
+          <input id="condoCode" type="text" inputmode="numeric" placeholder="Ex.: 2026001" required>
+          <button class="primary-button" type="submit">Verificar</button>
+        </div>
+      </form>
+      <div class="notice">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2 21h20zM12 9v5M12 18h.01"/></svg>
+        <div><strong>Atenção</strong><p>A aprovação do acesso é feita exclusivamente pela construtora ou pelo síndico em até <b>3 dias úteis</b>. Caso não possua o código ou o acesso não seja liberado nesse prazo, entre em contato com um deles.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal" id="recoveryModal" role="dialog" aria-modal="true" aria-labelledby="recoveryTitle" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <section class="modal__card modal__card--small">
+      <button class="modal__close" type="button" data-close aria-label="Fechar">×</button>
+      <span class="modal__icon">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      </span>
+      <span class="section-kicker">Recuperação de acesso</span>
+      <h2 id="recoveryTitle">Esqueci minha senha</h2>
+      <p>Informe o e-mail cadastrado para receber as orientações de recuperação.</p>
+      <form id="recoveryForm">
+        <label for="recoveryEmail">E-mail</label>
+        <input id="recoveryEmail" type="email" placeholder="seuemail@exemplo.com" required>
+        <button class="primary-button" type="submit">Enviar orientações</button>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal" id="propertyModal" role="dialog" aria-modal="true" aria-labelledby="propertyTitle" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <section class="modal__card">
+      <button class="modal__close" type="button" data-close aria-label="Fechar">×</button>
+      <span class="section-kicker">Escolha de acesso</span>
+      <h2 id="propertyTitle">Selecione o imóvel que deseja acessar</h2>
+      <p>Encontramos mais de um perfil vinculado ao seu e-mail.</p>
+      <div class="property-list">
+        <button type="button" data-property="AA RSO ASSESSORIA CONDOMÍNIO">
+          <span class="property-list__icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M8 21v-5h8v5"/></svg></span>
+          <span><small>Empreendimento</small><strong>AA RSO ASSESSORIA CONDOMÍNIO</strong><em>Código 2020001 · Perfil Síndico</em></span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+        </button>
+        <button type="button" data-property="SOLSTICE Casa Siracusa">
+          <span class="property-list__icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M8 21v-5h8v5"/></svg></span>
+          <span><small>Empreendimento</small><strong>SOLSTICE — Casa Siracusa</strong><em>Unidade 01 · Perfil Morador</em></span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="loginToast" role="status" aria-live="polite"></div>
+  <script src="login.js"></script>
+</body>
+</html>
