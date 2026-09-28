@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="194" height="58" viewBox="0 0 194 58" role="img" aria-labelledby="title desc">
+  <title id="title">IMO Imóvel em Ordem</title>
+  <desc id="desc">Logotipo tipográfico azul e verde da plataforma Imóvel em Ordem.</desc>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#FFFFFF" d="M4 8h4v30H4zM17 8h5.1l10.8 19.2L43.7 8H49v30h-4V14.2L34.3 33h-2.8L21 14.2V38h-4z"/>
+    <path fill="#FFFFFF" d="M73.2 7c9.4 0 17 7.2 17 16s-7.6 16-17 16-17-7.2-17-16 7.6-16 17-16Zm0 4.3C66.5 11.3 61 16.6 61 23s5.5 11.7 12.2 11.7S85.4 29.4 85.4 23 80 11.3 73.2 11.3Z"/>
+    <path fill="#6DC24B" d="M82.8 7.7c5.8-3.5 11.8-4.2 18-2-6.9 2.4-12.5 7.4-16.9 15l-4.3-5.5-3 2.4 7.8 9.4C89 17.3 96.2 11.3 106 9c-8.6-1.8-16.4-.7-23.2 3.3Z"/>
+    <text x="4" y="52" fill="#9FB2C3" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.55">IMÓVEL EM ORDEM</text>
+  </g>
+</svg>
