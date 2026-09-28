@@ -11,54 +11,36 @@
   <div class="app-shell">
     <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
       <div class="brand">
-        <img src="assets/logo-imo.svg" alt="Imóvel em Ordem" class="brand__logo">
+        <img src="assets/logo-imo-oficial.svg" alt="Imóvel em Ordem" class="brand__logo">
         <button class="icon-button sidebar__close" id="closeSidebar" type="button" aria-label="Fechar menu">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
       </div>
 
       <nav class="main-nav">
-        <p class="nav-label">Menu principal</p>
-        <a class="nav-item" href="#">
+        <p class="nav-label">Gestão do sistema</p>
+        <a class="nav-item" href="#dashboard">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
-          <span>Home</span>
+          <span>Visão geral</span>
         </a>
-        <a class="nav-item" href="#">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5zM14 3v5h5M8 12h8M8 16h6"/></svg>
-          <span>Páginas</span>
+        <a class="nav-item nav-item--active" href="#panel-condominios" data-nav-tab="condominios" aria-current="page">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M8 21v-5h8v5M8 9h.01M12 9h.01M16 9h.01"/></svg>
+          <span>Condomínios</span>
+          <span class="nav-item__count">13</span>
         </a>
-        <a class="nav-item" href="#">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20v-6h8v6M8 9h.01M12 9h.01M16 9h.01"/></svg>
-          <span>Dados da empresa</span>
+        <a class="nav-item" href="#panel-vencimentos" data-nav-tab="vencimentos">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span>Vencimentos</span>
+          <span class="nav-item__count">0</span>
         </a>
-        <a class="nav-item" href="#">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h7l2 2h9v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-          <span>Arquivos</span>
-        </a>
-        <a class="nav-item nav-item--active" href="#" aria-current="page">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.5 3v4M15.5 3v4M3 8.5h4M17 8.5h4M3 15.5h4M17 15.5h4M8.5 17v4M15.5 17v4M8 8h8v8H8z"/></svg>
-          <span>Módulos</span>
-          <svg class="nav-item__chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
-        </a>
-        <div class="nav-submenu">
-          <a class="nav-subitem nav-subitem--active" href="#">Administração de condomínios</a>
-        </div>
-        <a class="nav-item" href="#">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg>
-          <span>Lista de e-mails</span>
-        </a>
-        <a class="nav-item" href="#">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>
-          <span>Perfil</span>
-        </a>
-        <a class="nav-item" href="#">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.4 8.1-8 9-4.6-.9-8-4-8-9V7zM9 12l2 2 4-5"/></svg>
-          <span>Administrador</span>
+        <a class="nav-item" href="#panel-manutencoes" data-nav-tab="manutencoes">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5-5L12 3.6 8.6 7 6.3 4.7a4 4 0 0 0 5 5L4 17.3 6.7 20l7.7-7.7a4 4 0 0 0 5-5L17 9.6 14.4 7z"/></svg>
+          <span>Manutenções</span>
         </a>
       </nav>
 
       <div class="sidebar-footer">
-        <div class="sidebar-footer__badge">Ambiente administrativo</div>
+        <div class="sidebar-footer__badge"><span></span> Super administrador</div>
         <button class="logout-button" type="button">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9"/></svg>
           Sair
@@ -102,7 +84,7 @@
       </header>
 
       <main class="main-content">
-        <section class="page-heading">
+        <section class="page-heading" id="dashboard">
           <div>
             <span class="eyebrow">Super Admin</span>
             <h1>Administração de condomínios</h1>
@@ -111,6 +93,54 @@
           <div class="page-heading__status">
             <span class="status-dot"></span>
             Sistema operacional
+          </div>
+        </section>
+
+        <section class="admin-overview" aria-label="Indicadores do Super Admin">
+          <div class="admin-overview__heading">
+            <div>
+              <span class="section-kicker">Visão geral</span>
+              <h2>Indicadores da plataforma</h2>
+            </div>
+            <div class="admin-overview__badges">
+              <span class="admin-badge admin-badge--secure">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.4 8.1-8 9-4.6-.9-8-4-8-9V7zM9 12l2 2 4-5"/></svg>
+                Somente Super Admin
+              </span>
+              <span class="admin-badge">Dados ilustrativos</span>
+            </div>
+          </div>
+          <div class="metrics-grid">
+            <article class="metric-card metric-card--blue">
+              <span class="metric-card__icon">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M8 21v-5h8v5M8 9h.01M12 9h.01M16 9h.01"/></svg>
+              </span>
+              <div>
+                <p>Empreendimentos</p>
+                <strong>84</strong>
+                <small>Ativos no sistema</small>
+              </div>
+            </article>
+            <article class="metric-card metric-card--green">
+              <span class="metric-card__icon">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M14 16a5 5 0 0 1 7 4"/></svg>
+              </span>
+              <div>
+                <p>Moradores</p>
+                <strong>2.436</strong>
+                <small>Cadastrados nas unidades</small>
+              </div>
+            </article>
+            <article class="metric-card metric-card--orange">
+              <span class="metric-card__icon">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8h6v13M13 21V3h6v18M7.5 11h1M7.5 15h1M15.5 7h1M15.5 11h1M15.5 15h1"/></svg>
+              </span>
+              <div>
+                <p>Incorporadoras</p>
+                <strong>18</strong>
+                <small>Com acesso à plataforma</small>
+              </div>
+            </article>
           </div>
         </section>
 
@@ -231,9 +261,24 @@
         </section>
 
         <footer class="app-footer">
-          <span>Imóvel em Ordem</span>
-          <span>•</span>
-          <span>Protótipo visual do Super Admin</span>
+          <div class="app-footer__brand">
+            <span>Imóvel em Ordem</span>
+            <span>•</span>
+            <span>Protótipo visual do Super Admin</span>
+          </div>
+          <details class="legacy-access">
+            <summary>Acessos administrativos</summary>
+            <div class="legacy-access__links">
+              <a href="#">Home</a>
+              <a href="#">Páginas</a>
+              <a href="#">Dados da empresa</a>
+              <a href="#">Arquivos</a>
+              <a href="#">Módulos</a>
+              <a href="#">Lista de e-mails</a>
+              <a href="#">Perfil</a>
+              <a href="#">Administrador</a>
+            </div>
+          </details>
         </footer>
       </main>
     </div>
