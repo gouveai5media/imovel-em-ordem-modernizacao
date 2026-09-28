@@ -28,6 +28,9 @@ const icons = {
   user: '<svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg>',
   folder: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h7l2 2h9v11H3z"/></svg>',
   history: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.6M4 4v4.6h4.6M12 8v5l3 2"/></svg>',
+  tools: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5-5L12 3.6 8.6 7 6.3 4.7a4 4 0 0 0 5 5L4 17.3 6.7 20l7.7-7.7a4 4 0 0 0 5-5L17 9.6 14.4 7z"/></svg>',
+  people: '<svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M14 16a5 5 0 0 1 7 4"/></svg>',
+  building: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M8 21v-5h8v5M8 9h.01M12 9h.01M16 9h.01"/></svg>',
   trash: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></svg>'
 };
 
@@ -68,17 +71,16 @@ function renderCondominios(items = condominios) {
       </td>
       <td data-label="Status"><span class="status-pill"><span></span>${item.status}</span></td>
       <td data-label="Ações" class="data-table__actions">
-        <button class="row-action row-action--edit" type="button" data-action="Editar" data-condo="${item.nome}">${icons.edit}<span>Editar</span></button>
-        <div class="action-menu">
-          <button class="row-action row-action--more" type="button" aria-label="Mais ações para ${item.nome}" aria-expanded="false">${icons.more}</button>
-          <div class="action-menu__popover" role="menu">
-            <button type="button" role="menuitem" data-action="Visualizar" data-condo="${item.nome}">${icons.eye}<span>Visualizar</span></button>
-            <button type="button" role="menuitem" data-action="Arquivos" data-condo="${item.nome}">${icons.folder}<span>Arquivos</span></button>
-            <button type="button" role="menuitem" data-action="Histórico" data-condo="${item.nome}">${icons.history}<span>Histórico</span></button>
-            <button type="button" role="menuitem" data-action="Acessar como síndico" data-condo="${item.nome}">${icons.user}<span>Acessar como síndico</span></button>
-            <span class="action-menu__separator"></span>
-            <button class="action-menu__danger" type="button" role="menuitem" data-action="Excluir" data-condo="${item.nome}">${icons.trash}<span>Excluir</span></button>
-          </div>
+        <div class="action-strip" aria-label="Acessos rápidos de ${item.nome}">
+          <button class="row-action row-action--edit" type="button" data-action="Editar" data-condo="${item.nome}">${icons.edit}<span>Editar</span></button>
+          <button class="action-icon action-icon--folder" type="button" data-tooltip="Arquivos" aria-label="Arquivos" data-action="Arquivos" data-condo="${item.nome}">${icons.folder}</button>
+          <button class="action-icon action-icon--history" type="button" data-tooltip="Histórico" aria-label="Histórico" data-action="Histórico" data-condo="${item.nome}">${icons.history}</button>
+          <button class="action-icon action-icon--tools" type="button" data-tooltip="Manutenções" aria-label="Manutenções" data-action="Manutenções" data-condo="${item.nome}">${icons.tools}</button>
+          <button class="action-icon action-icon--view" type="button" data-tooltip="Visualizar" aria-label="Visualizar" data-action="Visualizar" data-condo="${item.nome}">${icons.eye}</button>
+          <button class="action-icon action-icon--delete" type="button" data-tooltip="Excluir" aria-label="Excluir" data-action="Excluir" data-condo="${item.nome}">${icons.trash}</button>
+          <button class="action-icon action-icon--people" type="button" data-tooltip="Moradores" aria-label="Moradores" data-action="Moradores" data-condo="${item.nome}">${icons.people}</button>
+          <button class="action-icon action-icon--syndic" type="button" data-tooltip="Acessar como síndico" aria-label="Acessar como síndico" data-action="Acessar como síndico" data-condo="${item.nome}">${icons.user}</button>
+          <button class="action-icon action-icon--developer" type="button" data-tooltip="Acessar como incorporadora" aria-label="Acessar como incorporadora" data-action="Acessar como incorporadora" data-condo="${item.nome}">${icons.building}</button>
         </div>
       </td>
     </tr>
@@ -138,6 +140,16 @@ document.querySelectorAll('[data-tab]').forEach((tab) => {
       panel.hidden = !active;
       panel.classList.toggle('tab-panel--active', active);
     });
+  });
+});
+
+document.querySelectorAll('[data-nav-tab]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    document.querySelector(`[data-tab="${link.dataset.navTab}"]`)?.click();
+    document.querySelectorAll('[data-nav-tab]').forEach((item) => item.classList.toggle('nav-item--active', item === link));
+    document.querySelector('.content-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    toggleSidebar(false);
   });
 });
 
