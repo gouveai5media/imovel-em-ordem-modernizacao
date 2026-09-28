@@ -1,4 +1,4 @@
-const mode = new URLSearchParams(window.location.search).get('modo') === 'editar' ? 'editar' : 'novo';
+const mode = (new URLSearchParams(window.location.search).get('modo') === 'editar' || window.location.href.includes('modo=editar')) ? 'editar' : 'novo';
 const formType = document.body.dataset.form;
 const icons = {
   trash: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></svg>',
