@@ -61,6 +61,11 @@ function initMaintenance() {
   document.querySelector('#breadcrumbMode').textContent = isEdit ? 'Editar manutenção' : 'Novo cadastro';
   document.querySelector('#maintenanceHeading').textContent = isEdit ? 'Hidráulica · Água potável' : 'Novo sistema e subsistema';
   document.querySelector('#submitMaintenance').textContent = isEdit ? 'Salvar alterações' : 'Cadastrar manutenção';
+  document.querySelector('.status-pill--draft').innerHTML = `<span></span>${isEdit ? 'Em edição' : 'Novo cadastro'}`;
+  if (!isEdit) {
+    document.querySelector('[name="sistema"]').selectedIndex = 0;
+    document.querySelector('[name="subsistema"]').selectedIndex = 0;
+  }
   if (isEdit) addRecord({title:'Verificação do sistema',description:'Verificar reservatórios, tubulações e pontos de abastecimento.',period:'6',notes:'Registrar a inspeção e eventuais não conformidades.'});
   document.querySelector('#addRecord').addEventListener('click', () => addRecord());
   document.querySelector('[data-empty-add]').addEventListener('click', () => addRecord());
